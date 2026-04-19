@@ -1,0 +1,130 @@
+{
+  "info": {
+    "name": "SpaceSync API Collection",
+    "description": "Postman Collection for the SpaceSync Resource Booking System.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Get All Resources",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/api/resources",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "resources"
+          ]
+        },
+        "description": "Fetch a list of all available resources in the system."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Create a Resource",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test Resource\",\n  \"type\": \"Lab\",\n  \"capacity\": 45\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/resources",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "resources"
+          ]
+        },
+        "description": "Create a new resource."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Get All Bookings",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/api/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "bookings"
+          ]
+        },
+        "description": "Fetch all bookings. Eager loading (JOIN) returns the nested Resource data."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Create a Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"resource_id\": 1,\n  \"requested_by\": \"Abtahi Abid\",\n  \"booking_date\": \"2026-06-01\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "bookings"
+          ]
+        },
+        "description": "Creates a new booking utilizing the foreign key mapping."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Delete a Booking",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:5000/api/bookings/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "bookings",
+            "1"
+          ]
+        },
+        "description": "Cancel/Delete a specific booking by its ID."
+      },
+      "response": []
+    }
+  ]
+}
